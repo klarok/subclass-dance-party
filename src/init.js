@@ -21,23 +21,41 @@ $(document).ready(function() {
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
+    var height = $("body").height() * Math.random();
+    var width = $("body").width() * Math.random();
 
+    
+    if (dancerMakerFunctionName === 'makeInteractiveDancer') {
+      var prevDancer = window.dancers[window.dancers.length - 1];
+      console.log(prevDancer);
+      console.log(prevDancer.$node.offset());
+      height = prevDancer.$node.offset().top;
+      width = prevDancer.$node.offset().left;
+      console.log(height + ', ' + width);
+    }
+    
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      height,
+      width,
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
     // produces a mouseover event
     dancer.$node.on('mouseover', function(event) {
-      console.log('this is a test');
+      $(this).addClass("spotlight");
+      
+    });
+    
+    dancer.$node.on('mouseout', function(event) {
+      $(this).removeClass("spotlight");
+      
     });
     window.dancers.push(dancer);
   });
   
   $('.lineUpButton').on('click', function(event) {
-    var windowHeight
-    window.dancers.forEach((dancer, index) => dancer.lineUp(index, $("body").height()));
+    var spacing = $("body").width() / (dancers.length + 1);
+    window.dancers.forEach((dancer, index) => dancer.lineUp(index, spacing));
   });
   
   $('.randomizeButton').on('click', function(event) {

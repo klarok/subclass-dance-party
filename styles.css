@@ -28,12 +28,26 @@ body, a:link, a:visited, a:active{
 a {
   text-decoration: none;
   border: 2px solid white;
+  box-sizing: border-box;
+}
+
+span {
+  display: inline-block;
 }
 
 .dancer{
   border:20px solid red;
   border-radius:5px;
   position:absolute;
+}
+
+.spotlight {
+  /*border: 10px solid white;*/
+  transform: scale(2);
+  background-image: url(./assets/spotlight.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 img.sprite {
@@ -51,16 +65,18 @@ img.sprite {
 .expand-dancer {
   position: absolute;
 }
+
 .expand-dancer img {
   animation: 1s infinite expand alternate;
+  transform-origin: center;
 }
 
 @keyframes expand {
   from {
-    max-height:100px;
+    transform:scale(1.0);
   }
   to {
-    max-height:300px;
+    transform:scale(2.0);
     /*transform: rotateY(180deg);*/
   }
 }
@@ -92,16 +108,49 @@ img.sprite {
 
 .pikachu-dancer {
   animation: 
-    0.5s infinite hop,
-    2s infinite pikaspin;
+    0.5s infinite hop;
+    /*2s infinite pikaspin;*/
   position: absolute;
   animation-direction: alternate;
   animation-timing-function: linear; 
   /*box-sizing: border-box;*/
 }
  
-
 @keyframes hop {
+  0% {
+    /*transform: translate(0, 0);*/
+
+    margin: 0 0; 
+  }
+  50% {
+    /*transform: translate(-30px, 25px);*/
+    margin: -30px 25px;
+    
+  }
+  75% {
+    /*transform: ;*/
+  }
+  100% {
+    transform: rotateZ(360deg);
+    /*transform: translate(0, 50px) rotate(1turn);*/
+    margin: 0 50px;
+  }
+
+}
+
+/*@keyframes pikaspin {
+  100% {
+    transform: rotateY(720deg);
+  }
+}*/
+
+.line-up-class {
+  animation: 1s infinite congo alternate ease-in !important;
+  /*border: solid red 2px;*/
+  background-image: ;
+}
+
+@keyframes congo{
   0% {
     translate
     margin: 0 0; 
@@ -111,25 +160,14 @@ img.sprite {
     
   }
   75% {
-    transform: rotate(1turn);
+    /*transform: rotate(1turn);*/S
   }
   100% {
     margin: 0 50px;
-    transform: rotateZ(360deg);
-  }
-
-}
-
-@keyframes pikaspin {
-  100% {
-    /*transform: rotateY(720deg);*/
+    transform: rotateY(.5turn);
   }
 }
 
-
-
-
-.line-up-class {
-  animation: 1s infinite hop alternate ease-in !important;
-  border: solid red 2px;
+.orbit-dancer {
+  
 }

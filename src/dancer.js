@@ -20,13 +20,14 @@ makeDancer.prototype.setPosition = function(top, left) {
   
 };
 
-makeDancer.prototype.lineUp = function(index, bodyHeight) {
+makeDancer.prototype.lineUp = function(index, spacing) {
   // change position somehow
   
   //given some index, calculate position in x
   // call setPosition on dancer
   // fix positioning based on bodyHeight
-  this.setPosition(index * 50 + 100, 50);
+  
+  this.setPosition("70%", (index + 1) * spacing);
   
   // this does not reset clock
   // our goal is to reset dancing animation clock
