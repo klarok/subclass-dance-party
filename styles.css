@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  overflow:hidden;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -21,7 +22,43 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  border:20px solid red;
+  border-radius:5px;
   position:absolute;
+}
+
+img.sprite {
+  border: none;
+  max-height: 100px;
+}
+
+.spin-dancer{
+  /*animation: 1s infinite spin;*/
+  position:absolute;
+  box-sizing: border-box;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+    padding:10px;
+  }
+  25% {
+    margin: 0 10% 0 0;
+  }
+  50% {
+    /*transform: rotateX(360deg);*/
+    /*transform: rotateY(120deg);*/
+    background-color:red;
+    margin: 10% 0 0 20%;
+    border: dashed 10px white;
+    padding: 0px;
+  }
+  75% {
+    margin: 10% 10% 0 0;
+  }
+  to {
+    transform: rotateY(360deg);
+    padding: 10px;
+  }
 }
