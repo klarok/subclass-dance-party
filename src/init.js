@@ -36,7 +36,14 @@ $(document).ready(function() {
   });
   
   $('.lineUpButton').on('click', function(event) {
-    window.dancers.forEach((dancer, index) => dancer.lineUp(index));
+    var windowHeight
+    window.dancers.forEach((dancer, index) => dancer.lineUp(index, $("body").height()));
+  });
+  
+  $('.randomizeButton').on('click', function(event) {
+    window.dancers.forEach((dancer, index) => {
+      dancer.randomize($("body").height(), $("body").width());
+    });
   });
 });
 

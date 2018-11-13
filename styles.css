@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  font-family: 'Roboto', sans-serif;
   overflow:hidden;
 }
 body, a:link, a:visited, a:active{
@@ -21,6 +22,12 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+
+a {
+  text-decoration: none;
+  border: 2px solid white;
+}
+
 .dancer{
   border:20px solid red;
   border-radius:5px;
@@ -37,6 +44,8 @@ img.sprite {
   position:absolute;
   box-sizing: border-box;
 }
+
+
 
 @keyframes spin {
   from {
@@ -61,4 +70,48 @@ img.sprite {
     transform: rotateY(360deg);
     padding: 10px;
   }
+}
+
+.pikachu-dancer {
+  animation: 
+    0.5s infinite hop,
+    2s infinite pikaspin;
+  position: absolute;
+  animation-direction: alternate;
+  animation-timing-function: linear; 
+  /*box-sizing: border-box;*/
+}
+ 
+
+@keyframes hop {
+  0% {
+    translate
+    margin: 0 0; 
+  }
+  50% {
+    margin: -30px 25px;
+    
+  }
+  75% {
+    transform: rotate(1turn);
+  }
+  100% {
+    margin: 0 50px;
+    transform: rotateZ(360deg);
+  }
+
+}
+
+@keyframes pikaspin {
+  100% {
+    /*transform: rotateY(720deg);*/
+  }
+}
+
+
+
+
+.line-up-class {
+  animation: 1s infinite hop alternate ease-in !important;
+  border: solid red 2px;
 }
