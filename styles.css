@@ -4,6 +4,8 @@ body, html{
 body{
   margin: 0px;
   background-color:#444;
+  background-image: url('./assets/dancefloor.jpg');
+  background-size: cover;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   overflow:hidden;
@@ -37,6 +39,7 @@ a {
 img.sprite {
   border: none;
   max-height: 100px;
+  /*animation: 1s infinite expand;*/
 }
 
 .spin-dancer{
@@ -45,7 +48,22 @@ img.sprite {
   box-sizing: border-box;
 }
 
+.expand-dancer {
+  position: absolute;
+}
+.expand-dancer img {
+  animation: 1s infinite expand alternate;
+}
 
+@keyframes expand {
+  from {
+    max-height:100px;
+  }
+  to {
+    max-height:300px;
+    /*transform: rotateY(180deg);*/
+  }
+}
 
 @keyframes spin {
   from {
