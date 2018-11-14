@@ -36,8 +36,8 @@ span {
 }
 
 .dancer{
-  border:20px solid red;
-  border-radius:5px;
+  /*border:20px solid red;
+  border-radius:5px;*/
   position:absolute;
 }
 
@@ -53,13 +53,18 @@ span {
 img.sprite {
   border: none;
   max-height: 100px;
-  /*animation: 1s infinite expand;*/
 }
 
 .spin-dancer{
   /*animation: 1s infinite spin;*/
   position:absolute;
   box-sizing: border-box;
+}
+
+.blinky-dancer{
+  position: absolute;
+  border:20px solid red;
+  border-radius:5px;
 }
 
 .expand-dancer {
@@ -169,5 +174,23 @@ img.sprite {
 }
 
 .orbit-dancer {
-  
+  position: absolute;
+
+  /*animation: 2s infinite orbit linear;*/
 }
+
+@keyframes orbit{
+  0% {
+    transform: translate(0, 0);
+  }
+  25%{
+    transform: scale(.75) translate(50px, 0);
+  }
+  50%{
+    transform: scale(.5) translate(0px, 0);
+  }
+  75%{
+    transform: scale(.75) translate(-50px, 0);
+  }
+}
+

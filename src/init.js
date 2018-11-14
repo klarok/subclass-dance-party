@@ -25,10 +25,10 @@ $(document).ready(function() {
     var width = $("body").width() * Math.random();
 
     
-    if (dancerMakerFunctionName === 'makeInteractiveDancer') {
+    if (dancerMakerFunctionName === 'makeOrbitDancer' && window.dancers.length > 0) {
       var prevDancer = window.dancers[window.dancers.length - 1];
-      console.log(prevDancer);
-      console.log(prevDancer.$node.offset());
+
+      // console.log(prevDancer.$node.offset());
       height = prevDancer.$node.offset().top;
       width = prevDancer.$node.offset().left;
       console.log(height + ', ' + width);
