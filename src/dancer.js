@@ -21,30 +21,20 @@ makeDancer.prototype.setPosition = function(top, left) {
 };
 
 makeDancer.prototype.lineUp = function(index, spacing) {
-  // change position somehow
-  
-  //given some index, calculate position in x
-  // call setPosition on dancer
-  // fix positioning based on bodyHeight
-  
   this.setPosition("70%", (index + 1) * spacing);
-  
-  // this does not reset clock
-  // our goal is to reset dancing animation clock
-  // var animationSetting = {
-  //   animation: '1s infinite spin'
-  // };
   this.$node.addClass("line-up-class");
-  // this.$node.css(animationSetting);
-  
 };
 
-// write scatter function to redistribute each dancer
 makeDancer.prototype.randomize = function(bodyH, bodyW) {
   this.$node.removeClass("line-up-class");
   var top = bodyH * Math.random();
   var left = bodyW * Math.random();
   this.setPosition(top, left);
-  // give it back its original animation
-  
+};
+
+makeDancer.prototype.customize = function(sprite, cssClass) {
+  if (sprite !== null) {
+    this.$node.append('<img class = "sprite" src = "./assets/' + sprite + '">');
+  }
+  this.$node.addClass(cssClass);
 };

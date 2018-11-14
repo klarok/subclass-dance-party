@@ -27,11 +27,8 @@ $(document).ready(function() {
     
     if (dancerMakerFunctionName === 'makeOrbitDancer' && window.dancers.length > 0) {
       var prevDancer = window.dancers[window.dancers.length - 1];
-
-      // console.log(prevDancer.$node.offset());
       height = prevDancer.$node.offset().top;
       width = prevDancer.$node.offset().left;
-      console.log(height + ', ' + width);
     }
     
     var dancer = new dancerMakerFunction(
@@ -40,7 +37,7 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
-    // produces a mouseover event
+    
     dancer.$node.on('mouseover', function(event) {
       $(this).addClass("spotlight");
       
@@ -62,6 +59,11 @@ $(document).ready(function() {
     window.dancers.forEach((dancer, index) => {
       dancer.randomize($("body").height(), $("body").width());
     });
+  });
+  
+  $('.customizeButton').on('click', function(event) {
+    let customDancer = window.dancers[window.dancers.length - 1];
+    customDancer.customize('carlton.gif', 'spin-dancer');
   });
 });
 

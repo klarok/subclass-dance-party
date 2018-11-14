@@ -35,14 +35,12 @@ span {
   display: inline-block;
 }
 
+/**************** GENERAL DANCERS ****************/
 .dancer{
-  /*border:20px solid red;
-  border-radius:5px;*/
   position:absolute;
 }
 
 .spotlight {
-  /*border: 10px solid white;*/
   transform: scale(2);
   background-image: url(./assets/spotlight.png);
   background-size: contain;
@@ -55,25 +53,32 @@ img.sprite {
   max-height: 100px;
 }
 
-.spin-dancer{
-  /*animation: 1s infinite spin;*/
-  position:absolute;
-  box-sizing: border-box;
+.line-up-class {
+  animation: 1s infinite congo alternate ease-in !important;
 }
 
+/**************** CUSTOM DANCERS ****************/
 .blinky-dancer{
-  position: absolute;
   border:20px solid red;
   border-radius:5px;
+  animation: 1s infinite zip;
 }
 
-.expand-dancer {
-  position: absolute;
+.spin-dancer{
+  animation: 1s infinite spin;
 }
 
 .expand-dancer img {
   animation: 1s infinite expand alternate;
   transform-origin: center;
+}
+
+.pikachu-dancer {
+  animation: 0.5s infinite hop alternate linear; 
+}
+
+.orbit-dancer {
+  animation: 2s infinite orbit linear;
 }
 
 @keyframes expand {
@@ -82,11 +87,19 @@ img.sprite {
   }
   to {
     transform:scale(2.0);
-    /*transform: rotateY(180deg);*/
   }
 }
 
 @keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes zip {
   from {
     transform: rotateY(0deg);
     padding:10px;
@@ -95,8 +108,6 @@ img.sprite {
     margin: 0 10% 0 0;
   }
   50% {
-    /*transform: rotateX(360deg);*/
-    /*transform: rotateY(120deg);*/
     background-color:red;
     margin: 10% 0 0 20%;
     border: dashed 10px white;
@@ -111,51 +122,23 @@ img.sprite {
   }
 }
 
-.pikachu-dancer {
-  animation: 
-    0.5s infinite hop;
-    /*2s infinite pikaspin;*/
-  position: absolute;
-  animation-direction: alternate;
-  animation-timing-function: linear; 
-  /*box-sizing: border-box;*/
-}
- 
 @keyframes hop {
   0% {
-    /*transform: translate(0, 0);*/
-
     margin: 0 0; 
   }
   50% {
-    /*transform: translate(-30px, 25px);*/
     margin: -30px 25px;
-    
   }
   75% {
-    /*transform: ;*/
   }
   100% {
     transform: rotateZ(360deg);
-    /*transform: translate(0, 50px) rotate(1turn);*/
     margin: 0 50px;
   }
 
 }
 
-/*@keyframes pikaspin {
-  100% {
-    transform: rotateY(720deg);
-  }
-}*/
-
-.line-up-class {
-  animation: 1s infinite congo alternate ease-in !important;
-  /*border: solid red 2px;*/
-  background-image: ;
-}
-
-@keyframes congo{
+@keyframes congo {
   0% {
     translate
     margin: 0 0; 
@@ -164,33 +147,28 @@ img.sprite {
     margin: -30px 25px;
     
   }
-  75% {
-    /*transform: rotate(1turn);*/S
-  }
   100% {
     margin: 0 50px;
     transform: rotateY(.5turn);
   }
 }
 
-.orbit-dancer {
-  position: absolute;
-
-  /*animation: 2s infinite orbit linear;*/
-}
-
-@keyframes orbit{
+@keyframes orbit {
   0% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) scale(2);
   }
   25%{
-    transform: scale(.75) translate(50px, 0);
+    transform: scale(.75) translate(100px, 0);
   }
   50%{
     transform: scale(.5) translate(0px, 0);
+    z-index: -100;
   }
   75%{
-    transform: scale(.75) translate(-50px, 0);
+    transform: scale(.75) translate(-100px, 0);
+  }
+  100% {
+    transform: translate(0, 0) scale(2);
   }
 }
 
