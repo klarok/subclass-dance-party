@@ -32,3 +32,28 @@ describe('blinkyDancer', function() {
     });
   });
 });
+
+
+describe('orbitDancer', function() {
+  var orbitDancer;
+  
+  beforeEach(function() {
+    orbitDancer = new makeOrbitDancer(10, 20);
+  });
+  
+  it('should have the correct classes when created', function() {
+    expect(orbitDancer.$node.hasClass('orbit-dancer')).to.be.true;
+  });
+  
+  
+  it('should have the line-up class when lineUp method is called', function() {
+    orbitDancer.lineUp(0, 0);
+    expect(orbitDancer.$node.hasClass('line-up-class')).to.be.true;
+  });
+  
+});
+
+  
+  
+  
+  
